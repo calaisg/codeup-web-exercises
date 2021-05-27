@@ -86,35 +86,28 @@ else
 var username = "codeup";
 var password = "notastrongpassword";
 
-var min_char = true;
-var contains = true;
-var max_char = true;
-var whitespace = true;
+var min_char = password.length >=5;
+var contains = !(password.includes(username));
+var max_char = username.length <= 20;
+var whitespace = (password === password.trim()) && (username === username.trim());
 
-if(password.length < 5)
+if(min_char == false)
 {
-    min_char = false;
     alert("Password must be at least 5 characters");
 }
 
-if(password.contains(username) == true)
+if(contains == false)
 {
-    contains = false;
     alert("Password cannot contain username");
 }
 
-if(username.length > 20)
+if(max_char == false)
 {
-    max_char = false;
     alert("Username cannot be longer than 20 characters");
 }
 
-
-
-if((password.indexOf(0) == “”) || (password.indexOf(password.length) == “”) || (username.indexOf(0) == “”) ||
-(username.indexOf(username.length) == “”))
+if(whitespace == false)
 {
-    whitespace = false;
     alert("Username and Password cannot start or end with whitespace");
 }
 
