@@ -95,7 +95,6 @@ var percent = prompt("What percent do you want to tip? (Answer in decimal form)"
 alert("You need to tip: $" + calculateTip(percent, total));
 
 /**
- * TODO:
  * Create a function named `applyDiscount`. This function should accept a price
  * (before a discount is applied), and a discount percentage (a number between 0
  * and 1). It should return the result of applying the discount to the original
