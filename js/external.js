@@ -106,7 +106,7 @@ if(password.contains(username) == true)
 if(username.length > 20)
 {
     max_char = false;
-    alert("Password cannot be longer than 20 characters");
+    alert("Username cannot be longer than 20 characters");
 }
 
 
