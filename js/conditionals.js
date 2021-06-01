@@ -166,32 +166,50 @@ calculateTotal(luckyNumber, total_bill);
  */
 
 var confirmed = confirm("Do you want to enter a number?")
-if (confirmed == true)
+if (confirmed)
 {
     var number_entered = prompt("Enter a number:");
-    if(number_entered % 2 == 0)
+    if (isNaN(number_entered))
     {
-        alert(number_entered + " is even");
+        alert("That is not a number");
     }
     else
     {
-        alert(number_entered + " is odd");
-    }
-    alert("The number plus 100 is: " + (Number(number_entered) + 100));
-    if(number_entered < 0)
-    {
-        alert(number_entered + " is negative");
-    }
-    else if (number_entered > 0)
-    {
-        alert(number_entered + " is positive");
-    }
-    else if (number_entered == 0)
-    {
-        alert(number_entered + " is neither positive or negative");
+        even_or_odd(number_entered);
+        print(number_entered);
+        positive_or_negative(number_entered);
     }
 }
 else
 {
     alert("OK, have a good day!");
+}
+
+function even_or_odd(number)
+{
+    if(number % 2 == 0)
+    {
+        alert(number + " is even");
+    }
+    else
+    {
+        alert(number + " is odd");
+    }
+}
+
+function print(number)
+{
+    alert("The number plus 100 is: " + (Number(number) + 100));
+}
+
+function positive_or_negative(number)
+{
+    if (number < 0)
+    {
+        alert(number + " is negative");
+    }
+    else
+    {
+        alert(number + " is positive");
+    }
 }
