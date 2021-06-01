@@ -44,7 +44,6 @@ function analyzeColor(color)
     }
 }
 
-
 // Don't change the next two lines!
 // These lines create two variables for you:
 // - `colors`: a list of the colors of the rainbow
@@ -63,7 +62,7 @@ console.log(analyzeColor(randomColor));
  * Refactor your above function to use a switch-case statement
  */
 
-switch(randomColor)
+switch(randomColor.toLowerCase())
 {
     case "blue" :
         alert("Blue is the color of the sea");
@@ -152,7 +151,6 @@ alert("Your price before the discount is: " + total_bill)
 calculateTotal(luckyNumber, total_bill);
 
 /**
- * TODO:
  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
  * would like to enter a number. If they click 'Ok', prompt the user for a
  * number, then use 3 separate alerts to tell the user:
