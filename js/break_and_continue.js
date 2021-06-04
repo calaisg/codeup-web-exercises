@@ -11,12 +11,12 @@ console.log("");
 
 var i = 0;
 while(i < 1) {
-    var skip = prompt("Enter an odd number");
-    if (skip % 2 !== 0) {
+    var skip = prompt("Enter an odd number between 1 & 50");
+    if ((skip % 2 !== 0) || (skip < 1) || (skip > 50)) {
         break
     }
     else {
-        console.log("Please enter an ODD number")
+        console.log("Please enter an odd number between 1 & 50")
     }
 }
 

@@ -5,7 +5,7 @@ console.log("While Loop Exercise");
 var input = 2;
 while (input < 65537) {
     console.log(input);
-    input = input * 2;
+    input *= 2;
 }
 
 //exercise 3 (do while loop)
@@ -16,7 +16,7 @@ while (input < 65537) {
 console.log("");
 console.log("Do While Loop Exercise");
 
-var allCones = Math.floor(Math.random() * 50) + 50;
+var allCones = Math.floor(Math.random() * 51) + 50;
 
 do {
     var sold = Math.floor(Math.random() * 5) + 1;
