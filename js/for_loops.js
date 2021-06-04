@@ -1,4 +1,5 @@
 "use strict";
+console.log("For Loop Exercises");
 
 //exercise 2 //DONE
 function showMultiplicationTable(input) {
@@ -20,7 +21,7 @@ for(let x = 1; x < 11; x++) {
     }
 }
 
-//exercise 4: not looking that right?
+//exercise 4: DONE
 console.log("");
 console.log("Exercise 4")
 
@@ -36,6 +37,3 @@ console.log("Exercise 5")
 for(var w = 100; w >= 5; w -= 5) {
     console.log(w);
 }
-
-
-

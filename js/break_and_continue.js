@@ -1,5 +1,10 @@
 "use strict";
 
+console.log("");
+console.log("");
+console.log("Break and Continue")
+console.log("");
+
 //prompt user for odd numb between 1 & 50
 //loop and break to continue prompting if enter invalid input
 //use loop and continue to output all numbers between 1 and 50 except one number user entered
@@ -26,5 +31,8 @@ for(let x = 1; x < 50; x += 2){
         console.log("Here is an odd number: " + x);
     }
 }
+
+console.log("");
+
 
 
