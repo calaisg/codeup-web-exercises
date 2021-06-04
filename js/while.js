@@ -3,8 +3,7 @@
 //exercise 2 (while loop)
 console.log("While Loop Exercise");
 var input = 2;
-while (input < 65537)
-{
+while (input < 65537) {
     console.log(input);
     input = input * 2;
 }

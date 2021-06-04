@@ -1,10 +1,8 @@
 "use strict";
 
 //exercise 2 //DONE
-function showMultiplicationTable(input)
-{
-    for(let i = 1; i < 11; i++)
-    {
+function showMultiplicationTable(input) {
+    for(let i = 1; i < 11; i++) {
         console.log(input + " x " + i + " = " + input * i);
     }
 }
@@ -12,15 +10,12 @@ function showMultiplicationTable(input)
 //exercise 3 // DONE
 console.log("Exercise 3");
 
-for(let x = 1; x < 11; x++)
-{
+for(let x = 1; x < 11; x++) {
     var RandomNumber = Math.floor(Math.random() * (200-20) +20);
-    if(RandomNumber % 2 == 0)
-    {
+    if(RandomNumber % 2 == 0) {
         console.log(RandomNumber + " is even");
     }
-    else
-    {
+    else {
         console.log(RandomNumber + " is odd");
     }
 }
@@ -29,11 +24,8 @@ for(let x = 1; x < 11; x++)
 console.log("");
 console.log("Exercise 4")
 
-
-for(let i = 1; i < 10; i++)
-{
-    for (let x = 0; x < i; x++)
-    {
+for(let i = 1; i < 10; i++) {
+    for (let x = 0; x < i; x++) {
         console.log(i);
     }
 }
@@ -43,8 +35,7 @@ for(let i = 1; i < 10; i++)
 console.log("");
 console.log("Exercise 5")
 
-for(var w = 100; w >= 5; w -= 5)
-{
+for(var w = 100; w >= 5; w -= 5) {
     console.log(w);
 }
 
