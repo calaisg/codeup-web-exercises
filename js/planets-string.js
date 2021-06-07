@@ -33,7 +33,8 @@
      * string, and <li> tags around each planet.
      */
 
-    var unorderedList = "<ul><li>" + planetsArray.join('<li>') + "<li><ul>";
+    var unorderedList = "<ul><li>" + planetsArray.join('</li><li>') + "</li><ul>";
     console.log(unorderedList);
+    document.write(unorderedList);
 
 })();
