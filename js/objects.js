@@ -70,7 +70,7 @@
     console.log("");
 
 
-    /** TODO:
+    /** DONE
      * Create an array of objects that represent books and store it in a
      * variable named `books`. Each object should have a title and an author
      * property. The author property should be an object with properties
@@ -121,7 +121,6 @@
         }
     ]
 
-
     /**
      * DONE:
      * Loop through the books array and output the following information about
@@ -154,18 +153,51 @@
         console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
         console.log("---")
     }
+    console.log("");
 
     /**
      * Bonus:
-     * - Create a function named `createBook` that accepts a title and author
+     *   DONE: Create a function named `createBook` that accepts a title and author
      *   name and returns a book object with the properties described
-     *   previously. Refactor your code that creates the books array to instead
+     *   previously.
+     *   DONE: Refactor your code that creates the books array to instead
      *   use your function.
+     */
+
+    function createBook(title, firstName, lastName)
+    {
+        var book = {
+            title: title,
+            firstName: firstName,
+            lastName: lastName
+    }
+        return book;
+    }
+
+    var refreactoredBooks = [createBook("The Immortal Life of Henrietta Lacks",  "Rebecca", "Skloot"),
+        createBook("Your Inner Fish", "Neil", "Shubin"),
+        createBook("Untamed", "Glennon", "Doyle"),
+        createBook("Kokoro", "Christine", "Mari"),
+        createBook("The Secret Life of Pronouns: What Our Words Say About Us", "James", "Pennebaker")]
+
+     /**
      * - Create a function named `showBookInfo` that accepts a book object and
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
 
 
+     function showBookInfo(object)
+     {
+         console.log("Title: " + object.title);
+         console.log("Author: " + object.firstName + " " + object.lastName );
+     }
 
+     console.log("Refractored Code");
+     for(var i = 0; i < refreactoredBooks.length; i++)
+     {
+         console.log("Book # " + (refreactoredBooks.indexOf(refreactoredBooks[i]) + 1));
+         showBookInfo(refreactoredBooks[i]);
+         console.log("---");
+     }
 })();
