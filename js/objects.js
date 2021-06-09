@@ -55,18 +55,20 @@
         {name: 'George', amount: 320}
      ];
 
-     for (var i = 0; i < shoppers.length; i++){
-         console.log(shoppers[i].name);
-         console.log("The amount before the discount is: $" + shoppers[i].amount);
+     shoppers.forEach(function(shopper){
+         console.log(shopper.name);
+         console.log("The amount before the discount is: $" + shopper.amount);
 
-         if(shoppers[i].amount < 200) {
-             console.log("You don't qualify for a discount, your amount is still: $" + shoppers[i].amount);
+         if(shopper.amount < 200) {
+             console.log("You don't qualify for a discount, your amount is still: $" + shopper.amount);
          }
+
          else{
-             console.log("Your discount is: $" + (shoppers[i].amount * .12).toFixed(2));
-             console.log("Your amount after the discount is: $" + (shoppers[i].amount * .88).toFixed(2));
+             console.log("Your discount is: $" + (shopper.amount * .12).toFixed(2));
+             console.log("Your amount after the discount is: $" + (shopper.amount * .88).toFixed(2));
          }
-     }
+
+    })
     console.log("");
 
 
