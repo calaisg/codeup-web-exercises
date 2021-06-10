@@ -166,13 +166,12 @@
      *   use your function.
      */
 
-    function createBook(title, firstName, lastName)
-    {
+    function createBook(title, firstName, lastName) {
         var book = {
             title: title,
             firstName: firstName,
             lastName: lastName
-    }
+        }
         return book;
     }
 
@@ -189,15 +188,13 @@
      */
 
 
-     function showBookInfo(object)
-     {
+     function showBookInfo(object) {
          console.log("Title: " + object.title);
          console.log("Author: " + object.firstName + " " + object.lastName );
      }
 
      console.log("Refractored Code");
-     for(var i = 0; i < refreactoredBooks.length; i++)
-     {
+     for(var i = 0; i < refreactoredBooks.length; i++) {
          console.log("Book # " + (refreactoredBooks.indexOf(refreactoredBooks[i]) + 1));
          showBookInfo(refreactoredBooks[i]);
          console.log("---");
