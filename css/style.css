@@ -1,3 +1,10 @@
+body{
+    font-family: Georgia;
+    background-color: darksalmon;
+    background-image: url("../img/back.jpeg");
+
+}
+
 h1 {
     text-align: center;
     color: purple;
@@ -9,6 +16,42 @@ h2{
     text-decoration: underline;
 }
 
-body{
-    background-color: darksalmon;
+ol{
+    list-style-type: upper-roman;
+}
+ul{
+    list-style-type: circle;
+}
+
+table, th, td{
+    border: 1px solid black
+}
+
+table{
+    font-family: "Times New Roman";
+    width: 50%;
+
+}
+
+th, td{
+    padding: 10px;
+}
+
+hr{
+    border: 1px dotted black;
+}
+
+a:link{
+    color: purple;
+}
+
+a:visited{
+    color: black;
+}
+a:hover{
+    color: red;
+}
+
+a.active{
+    color:green;
 }
