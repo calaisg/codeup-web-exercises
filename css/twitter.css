@@ -66,7 +66,8 @@ you'll need to adjust the top value. Use the class profile-image for this purpos
 vertically is by changing its line-height. If it matches the height of the container
  the text will be centered vertically. Center the button inside the .profile-form element. */
 .profile-form{
-    margin: auto;
+    line-height:80px;
+    float: right;
 }
 
 .btn {
@@ -130,7 +131,7 @@ Use the property overflow since it will contain only floating elements */
     overflow: auto;
     padding: .5em;
     background: var(--light-bg);
-    border-bottom: 1px var(--separator-color);
+    border-bottom: solid 1px var(--separator-color);
 }
 
 /*The media-image maximum width should be 50px, and it should float.
