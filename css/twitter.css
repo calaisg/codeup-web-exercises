@@ -54,12 +54,15 @@ a {
 .profile {
     background: var(--light-bg);
     height: 80px;
+    position: relative;
 }
 
 /*Use absolute positioning to center the avatar,
 you'll need to adjust the top value. Use the class profile-image for this purpose*/
 .profile-image{
     position: absolute;
+    top:-40px;
+
 }
 
 /* To which side should we float the .profile-form? One way to center text
