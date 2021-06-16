@@ -58,11 +58,16 @@ a {
     position: relative;
 }
 
+/* added profile header realitve position so profile image can be absolute*/
+.profile-header{
+    position: relative;
+}
+
 /*Use absolute positioning to center the avatar,
 you'll need to adjust the top value. Use the class profile-image for this purpose*/
 .profile-image{
     position: absolute;
-    top:-40px;
+    top:-30px;
 
 }
 
@@ -149,7 +154,7 @@ It must have a margin top of 1.33em */
 /*The media-body should float too. Its width will be 100%.
 We need to use calc to subtract the width of the image.*/
 .media-body{
-    width: calc(100% - 100px);
+    width: calc(100% - 50px);
     float: left;
 }
 
