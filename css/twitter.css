@@ -30,6 +30,7 @@ a {
     background: var(--light-bg);
     width: 100%;
     position: fixed;
+    z-index: 1000;
 }
 /* Each nav-item should display inline block and have a padding of 1.5em */
 .nav-item{
