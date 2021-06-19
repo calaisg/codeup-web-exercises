@@ -1,25 +1,23 @@
-/*
-no explicit height given to the navbar
-logo is absolutely positioned to completely center text on the navbar */
-
 *{
     /* box-sizing: border-box for all elements */
     box-sizing: border-box;
 }
 
 body {
+    /*no explicit height given to the navbar*/
     margin: 0;
 }
 
 nav{
     background-color: #848487;
+    display: flex;
 }
 
 .nav-items{
     /* default styling is removed as needed from the body,
     unordered list and anchor tag elements*/
     display: flex;
-    flex-wrap: none;
+    flex-grow: 1;
 }
 nav a{
     /* anchor tags are display: inline-block */
@@ -27,8 +25,9 @@ nav a{
     text-decoration: none;
     color: black;
     font-family: 'Work Sans', sans-serif;
-    /* clickable area of links immediately flow from one link to the next (padding will help achieve this) */
-    padding: 1em;
+    /* clickable area of links immediately flow from one link to the
+     next (padding will help achieve this) */
+    padding: 0 5px;
     align-self: center;
 }
 nav a:hover{
@@ -38,9 +37,14 @@ nav a:hover{
 
 .logo{
    /* the "Logo" text is 3em with .2em of padding above and below */
+    /*logo is absolutely positioned to completely center text on the navbar */
     padding: .2em 0;
     font-size: 3em;
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
     justify-self: center;
+}
+
+.nav-items:nth-child(3){
+    justify-content: flex-end;
 }
