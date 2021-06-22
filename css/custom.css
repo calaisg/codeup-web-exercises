@@ -1,0 +1,10 @@
+.jumbotron{
+    display: flex;
+    justify-content: center;
+}
+
+.main-head{
+    background-color: dodgerblue;
+    color: white;
+}
+
