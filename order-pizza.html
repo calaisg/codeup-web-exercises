@@ -35,7 +35,7 @@
     </nav>
 
     <div class="container">
-        <div class="jumbotron jumbotron-fluid">
+        <div class="jumbotron jumbotron-fluid .d-sm-none .d-md-block">
             <h1 class="pizza-welcome">Welcome to Pizza World</h1>
         </div>
 
@@ -43,69 +43,86 @@
 
         <div class="tabs">
             <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#"><span class="badge badge-pill badge-secondary">1</span>
+                <li class="nav-item" id="crust">
+                    <a class="nav-link active" href="#size-and-crust"><span class="badge badge-pill badge-secondary">1</span>
                         Size and Crust</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"><span class="badge badge-pill badge-secondary">2</span>
+                <li class="nav-item" id="cheese">
+                    <a class="nav-link" href="#cheese-and-sauce"><span class="badge badge-pill badge-secondary">2</span>
                         Cheese and Sauce</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" id="top">
                     <a class="nav-link" href="#"><span class="badge badge-pill badge-secondary">3</span>
                         Toppings</a>
                 </li>
             </ul>
         </div>
 
-        <div class="card">
-            <div class="card-header main-head text-white bg-primary">Choose size and crust</div>
-            <div class="card-body">
                 <div class="card">
-                    <div class="card-header">Hand Tossed</div>
+                    <div class="card-header main-head text-white bg-primary">Choose size and crust</div>
                     <div class="card-body">
-                        <p class="card-text">Garlic seasoned crust with a rich, buttery taste</p>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="radio" name="PizzaSize" id="small" value="smallCrust">
-                                <label class="form-check-label" for="small">
-                                    Small (10")
-                                </label>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="radio" name="PizzaSize" id="medium" value="medium">
-                                <label class="form-check-label" for="medium">
-                                    Medium (12")
-                                </label>
-                        </ul>
+                        <div class="card">
+                            <div class="card-header">Hand Tossed</div>
+                            <div class="card-body">
+                                <p class="card-text">Garlic seasoned crust with a rich, buttery taste</p>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <input class="form-check-input" type="radio" name="PizzaSize" id="small" value="smallCrust">
+                                        <label class="form-check-label" for="small">
+                                            Small (10")
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input" type="radio" name="PizzaSize" id="medium" value="medium">
+                                        <label class="form-check-label" for="medium">
+                                            Medium (12")
+                                        </label>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">Cripsy Thin</div>
+                            <div class="card-body">
+                                <p class="card-text">Thin enough for optimum crispy to crunch ratio</p>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <input class="form-check-input" type="radio" name="PizzaSize1" id="medium1" value="medium1">
+                                        <label class="form-check-label" for="medium1">
+                                            Medium (12")
+                                        </label>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input" type="radio" name="PizzaSize1" id="large" value="large">
+                                        <label class="form-check-label" for="large">
+                                            Large (14")
+                                        </label>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer text-right">
+                            <a href="#" class="btn btn-primary">Next Step</a>
+                        </div>
                     </div>
                 </div>
-                <div class="card">
-                    <div class="card-header">Cripsy Thin</div>
-                    <div class="card-body">
-                        <p class="card-text">Thin enough for optimum crispy to crunch ratio</p>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="radio" name="PizzaSize1" id="medium1" value="medium1">
-                                <label class="form-check-label" for="medium1">
-                                    Medium (12")
-                                </label>
-                            </li>
-                            <li class="list-group-item">
-                                <input class="form-check-input" type="radio" name="PizzaSize1" id="large" value="large">
-                                <label class="form-check-label" for="large">
-                                    Large (14")
-                                </label>
-                        </ul>
-                    </div>
-                </div>
-                <div class="card-footer text-right">
-                    <a href="#" class="btn btn-primary">Next Step</a>
-                </div>
-            </div>
-        </div>
 
-        <div class="card">
+            <div class="card" id="cheese-and-sauce">
+                <div class="card-header main-head text-white bg-primary">Choose Cheese and Sauce</div>
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header">Cheese</div>
+                        <div class="card-body">
+                             <p class="card-text">How Much?</p>
+                            <form>
+
+                            </form>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
         </div>
     </div>
 </body>
