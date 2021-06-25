@@ -1,0 +1,19 @@
+body{
+    background-color: #E6E6E6;
+}
+
+.visual{
+    font-family: 'Anton', sans-serif;
+    font-size: 64px;
+}
+
+.utah{
+    font-family: 'Anton', sans-serif;
+    font-size: 48px;
+}
+
+.breaking{
+    /* makes circles in line isntead of square*/
+    display: none;
+}
+
