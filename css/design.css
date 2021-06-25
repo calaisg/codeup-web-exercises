@@ -12,8 +12,16 @@ body{
     font-size: 48px;
 }
 
-.breaking{
+.breaking-first{
     /* makes circles in line isntead of square*/
     display: none;
 }
 
+.texts-and-articles{
+    font-family: 'Abel', sans-serif;
+    font-size: 32px;
+}
+
+.twitter-details{
+    font-size: 28px;
+}
