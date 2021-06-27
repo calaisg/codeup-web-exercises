@@ -1,3 +1,4 @@
+
 body{
     background-color: #E6E6E6;
 }
@@ -25,3 +26,49 @@ body{
 .twitter-details{
     font-size: 10px;
 }
+
+.red-circle{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    background: #E6563B
+}
+
+.yellow-circle{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    background: #DEA03D
+
+}
+
+.green-circle{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    background: #7CB06C
+}
+
+.blue-circle{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    background: #00ABA9
+}
+
