@@ -40,20 +40,38 @@
             var subHeader = document.getElementById("sub-header");
             console.log(subHeader);
 
-        // TODO: Set the text color of subHeader to blue
+        // DONE: Set the text color of subHeader to blue
+            subHeader.style.color = "blue";
 
         // DONE: Uncomment the next line and get all list items
             var listItems = document.getElementsByTagName("li")
             console.log(listItems);
 
-        // TODO: Set text color on every other list item to grey
-        // TODO: Set text color of li with dbid = 1 to blue
+        // DONE: Set text color on every other list item to grey
+        for(let i = 0; i < listItems.length; i+=2){
+            listItems[i].style.color = "grey"
+        }
+
+        // DONE: Set text color of li with dbid = 1 to blue
+        for (let i = 0; i < listItems.length; i++)
+        {
+            if( listItems[i].getAttribute("data-dbid") == 1)
+            {
+                listItems[i].style.color = "blue";
+            }
+        }
 
         // DONE: Uncomment the next line and get all elements with class name sub-paragraph
             var subParagraphs = document.getElementsByClassName("sub-paragraph");
             console.log(subParagraphs);
 
-        // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        // DONE: Change the text in the first sub paragraph to "Mission Accomplished!"
+            // getElementsbyClass returns an array, so need to loop through
+            // could do document.querySelector("sub-paragraph") then set subparagra.innerHTML = whatever
+            for (let i = 0; i < subParagraphs.length; i++){
+                subParagraphs[i].innerHTML= "Mission Accomplished";
+            }
+
     })();
 </script>
 </body>
