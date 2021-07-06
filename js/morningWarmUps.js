@@ -21,14 +21,20 @@ function countSpaces(string){
 
 
 // July 6th 2021
-// TODO: Create a function named capitalizeAllNames that accepts an array of strings and returns the array with all of its elements capitalized.
+// DONE: Create a function named capitalizeAllNames that accepts an array of strings and returns the array with all of its elements capitalized.
 // Example:  capitalizeAllNames(["bob","Seth","TOFU","Toyota"]) ---- returns ----> ["BOB","SETH","TOFU","TOYOTA"]
 
 function capitalizeAllNames(array){
-    return array.toUpperCase();
+    var tester = [];
+    for(let i = 0; i < array.length; i++){
+        tester[i] = array[i].toUpperCase();
+    }
+    return tester;
 }
 
-// TODO: Create a function named capitalizeFirstLetter that accepts an array of strings and returns the array with all of the first letters in
+console.log()
+
+// DONE: Create a function named capitalizeFirstLetter that accepts an array of strings and returns the array with all of the first letters in
 //  each string being capitalized while having the rest of the string lowercase look at the example below for reference.
 // Example:  capitalizeFirstLetter(["bob","Seth","TOFU","Toyota"]) ---- returns ----> ["Bob","Seth","Tofu","Toyota"]
 
