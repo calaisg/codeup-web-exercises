@@ -1,31 +1,26 @@
-//TODO: 1
+//-----DONE-------
+// 1
 //Create a function called removeDuplicates that accepts an array of strings and
 // returns the array with all duplicate elements filtered out.
 
 //Examples
-    // removeDuplicates(["bob","squid","samantha","bob"]);
+    console.log(removeDuplicates(["bob","squid","samantha","bob"]));
     // // Should return the following
     // ["bob","squid","samantha"]
-    //
-    // removeDuplicates(["tilda","tilda"]);
+
+    console.log(removeDuplicates(["tilda","tilda"]));
     // // Should return the following
     // ["tilda"]
-    //
-    // removeDuplicates(["2016-02-13","1994-12-21","2016-02-13","2016-02-13","2005-11-29"]);
+
+    console.log(removeDuplicates(["2016-02-13","1994-12-21","2016-02-13","2016-02-13","2005-11-29"]));
     // // Should return the following
     // ["1994-12-21","2016-02-13","2005-11-29"]
 
 function removeDuplicates(array){
-    var testArray = [array[0]];
-    for(let i = 1; i < array.length; i++){
-        for(let x = 0; x < testArray.length; x++){
-            if(array[i] == testArray[x]){
-
-            }
-        }
-    }
-
+   let unique = [...new Set(array)];
+   return unique;
 }
+
 //-------DONE----
 
 //2
@@ -54,21 +49,42 @@ function max(array){
     return max;
 }
 
-//----
-//TODO: 3
+//----DONE-----
+//3
 //Create a function called mostOccuringNumber that accepts an array of numbers and
 // returns the number that occurs the most within that array.
 
 //Examples
-    //mostOccuringNumber([8,93,28,8,27,-62,32,8,-62]);
+    console.log(mostOccuringNumber([8,93,28,8,27,-62,32,8,-62]));
     // Should return the following
     // 8
-    // mostOccuringNumber([8,93,-62.0,28,27,-62,32,8,-62]);
+    console.log(mostOccuringNumber([8,93,-62.0,28,27,-62,32,8,-62]));
     // Should return the following
     // -62
-    // mostOccuringNumber([73.5,8,0,-3,3.50,8.25,3.50]);
+    console.log(mostOccuringNumber([73.5,8,0,-3,3.50,8.25,3.50]));
     // Should return the following
     // 3.5
+
+function mostOccuringNumber(array){
+    array.sort();
+    var mode = array[0];
+    var counter = 1;
+    var maxocurrs = 1;
+
+    for(let i = 1; i < array.length; i++){
+        if(array[i] == array[i-1]){
+            counter++;
+        }
+        else{
+            if(counter > maxocurrs){
+                maxocurrs = counter;
+                mode = array[i-1]
+            }
+            counter = 1;
+        }
+    }
+    return mode;
+}
 
 
 //---DONE---
@@ -147,11 +163,10 @@ console.log(whoIsPassing(students));
 function whoIsPassing(object){
     var studentInfo = [];
     for(let i = 0; i < object.length; i++){
-        var passing;
+        var passing = false;
         if(object[i].classAverage >= 60){
             passing = true;
         }
-        else{passing= false}
         var student = {
             name: object[i].name,
             passing: passing
@@ -160,6 +175,9 @@ function whoIsPassing(object){
     }
     return studentInfo;
 }
+
+//to get rid of if else could've set passing = (object[i].classAverage >= 60)
+//sets it as true or false, makes it simpler
 
 
 //-----DONE----
