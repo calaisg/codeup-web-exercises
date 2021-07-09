@@ -135,6 +135,8 @@ personThree.intro = function (){
     }
     console.log(returnStrings(returnObjects(["hello", "dave"])));
 
+// 7/9
+//
 // DONE: Create a function named getTallUsers that accepts an array of objects. The objects in the array will be in the same format
 //  as PersonOne, PersonTwo, and PersonThree. The functions job is to return an array of users that have heightInInches equal to or greater than 65.
 var people = [personOne,personTwo,personThree];

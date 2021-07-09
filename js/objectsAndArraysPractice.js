@@ -66,20 +66,29 @@ function max(array){
     // 3.5
 
 function mostOccuringNumber(array){
+    //sort array numerically
     array.sort();
+
+    //set default mode to be first number in array
     var mode = array[0];
+    //counts occurances of each number
     var counter = 1;
+    //max occurs, checks if occurances of new numbers is larger than past occurances
     var maxocurrs = 1;
 
     for(let i = 1; i < array.length; i++){
+        //check if next number is the same number
         if(array[i] == array[i-1]){
             counter++;
         }
         else{
+            //checks if occurances of current number is larger than max occurances
             if(counter > maxocurrs){
                 maxocurrs = counter;
+                //set mode to be new number with highest occcurances
                 mode = array[i-1]
             }
+            //reset counter to 0 bc a different number has occured
             counter = 1;
         }
     }
