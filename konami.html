@@ -17,6 +17,7 @@
   let started = false;
 
   $(document).keyup(function(event){
+    //why couldn't do it outside of it? how to register function?
     let key = event.keyCode;
     console.log(key);
 
@@ -41,16 +42,9 @@
       if(counter == 11){
         $("body").css("background-color", "red");
         alert("You have added 30 lives!");
+        //how to make it happen at same time, how to add sound, etc.?
       }
     }
-
-
-
-
-
-
-
-
 
   });
 
