@@ -39,6 +39,9 @@ $(document).ready(function (){
     //alert(final);
 
     //if duplicate IDs, just gives the first instance of it
+    //shouldn't have duplicate Ids, should be unique to specific element, if want
+    //multiple use class
+
     //var blake = $("#blake").html();
     //alert(blake);
 
