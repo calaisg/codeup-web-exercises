@@ -13,6 +13,7 @@
 </head>
 <body>
 <h1>Konami Code</h1>
+<p>The Konami Code: Up, Up, Down, Down, Left, Right, Left, Right, B, A ( ↑ ↑ ↓ ↓ ← → ← → B A )</p>
 
 <!-- up =38, down =40, left =37, right =39, a =65 , b =66,enter =13-->
 
@@ -24,7 +25,7 @@
   let counter = 0;
   let started = false;
 
-  $(document).on("keydown", (function(event){
+  $(document).on("keydown",(function(event){
 
       //sets key value of pressed key
       let key = event.keyCode;
@@ -35,8 +36,6 @@
               started = true;
           }
       }
-
-
       //if up arrow hit, start keeping track
       if(started){
           //if matches next event in sequence

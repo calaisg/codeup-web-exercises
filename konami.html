@@ -16,16 +16,20 @@
   let counter = 0;
   let started = false;
 
-  //does this need to be a variable, is that good practice
+  //does this need to be in a variable, is that good practice
+  // $(document).ready(function(){ stuff } need to be in it??
+  //better practice on or keydown/keypress. Get physically the difference but better ones?
 
-  $(document).on("keyup", (function(event){
+  //**add the document ready thin, just good practice to do
+
+  $(document).on("keydown", (function(event){
     let key = event.keyCode;
     console.log(key);
 
     //check if first up key is hit, then start monitoring code
     if(!started){
       if(key === 38){
-        started = true
+        started = true;
       }
     }
 
@@ -43,14 +47,13 @@
       if(counter === 11){
         $("body").css("background-color", "red");
         $("h1").css("color", "white").text("KONAMI CODE: HACKED!");
-
-        alert("You have added 30 lives!");
+        setTimeout(function(){
+          alert("You have added 30 lives!")
+                }, 1);
         //how to make it happen at same time, how to add sound, etc.?
       }
     }
   }));
-
-
 
 
 </script>
