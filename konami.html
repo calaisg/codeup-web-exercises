@@ -16,21 +16,22 @@
   let counter = 0;
   let started = false;
 
-  $(document).keyup(function(event){
-    //why couldn't do it outside of it? how to register function?
+  //does this need to be a variable, is that good practice
+
+  $(document).on("keyup", (function(event){
     let key = event.keyCode;
     console.log(key);
 
     //check if first up key is hit, then start monitoring code
     if(!started){
-      if(key == 38){
+      if(key === 38){
         started = true
       }
     }
 
     if(started){
       //check if each key matches
-      if(cheatCode[counter] == key){
+      if(cheatCode[counter] === key){
         counter++;
       }
       //if it doesn't match, restart
@@ -39,14 +40,15 @@
         counter = 0;
       }
       //if all matches, once enter is hit, alert
-      if(counter == 11){
+      if(counter === 11){
         $("body").css("background-color", "red");
+        $("h1").css("color", "white").text("KONAMI CODE: HACKED!");
+
         alert("You have added 30 lives!");
         //how to make it happen at same time, how to add sound, etc.?
       }
     }
-
-  });
+  }));
 
 
 
