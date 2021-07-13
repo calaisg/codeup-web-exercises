@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Konami Code</h1>
-<p>The Konami Code: Up, Up, Down, Down, Left, Right, Left, Right, B, A ( ↑ ↑ ↓ ↓ ← → ← → B A )</p>
+<p>The Konami Code: Up, Up, Down, Down, Left, Right, Left, Right, B, A</p>
 
 <!-- up =38, down =40, left =37, right =39, a =65 , b =66,enter =13-->
 
@@ -47,7 +47,8 @@
       //if all matches, once enter is hit, alert
       if(counter === 11){
         $("body").css("background-color", "red");
-        $("h1").css("color", "white").text("KONAMI CODE: HACKED!");
+        $("h1").css("color", "white").text("YOUR ACCOUNT HAS BEEN SUSPENDED FOR 30 DAYS DUE TO CHEATING");
+        $("p").text(" ");
         setTimeout(function(){
           alert("You have added 30 lives!")
                 }, 1);
@@ -55,7 +56,6 @@
       }
     }
   }));
-
 
 </script>
 </body>
