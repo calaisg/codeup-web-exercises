@@ -58,24 +58,24 @@
   <dd>A10: t̴̤͒ḣ̶̥e̴̘̓r̷̡͘ḙ̴̀ ̶̟̂i̶̗͗s̸͙̚ ̵̗̀o̵̟͠n̵͕̚l̵̫̇y̴̲̏ ̴͓̒t̵̰̽h̸͔͒ę̴̀ ̶͚͗v̷͈͊ọ̷̐ĭ̵̳d̴̬͐</dd>
 </dl>
 
+<h3>NightVale National Park</h3>
 <ul>
-  <h3>NightVale National Park</h3>
   <li>As featured in the "Welcome to NightVale Podcast"</li>
   <li>Desert Bluff residents are NOT WELCOME</li>
   <li>Watch for crossing angels, as Old Woman Josie lives nearby</li>
-  <li>If you haven't listened to Nightvale, this wil be a weird thing to read</li>
+  <li>If you haven't listened to Nightvale, this will be a weird thing to read</li>
 </ul>
 
+<h3>Big Bend</h3>
 <ul>
-  <h3>Big Bend</h3>
   <li>In Texas</li>
   <li>Lots of Birds</li>
   <li>Dinosaurs?</li>
   <li>The Rio Grande is located within the Park </li>
 </ul>
 
+<h3>Grand Canyon</h3>
 <ul>
-  <h3>Grand Canyon</h3>
   <li>Is very Hot</li>
   <li>Rocky</li>
   <li>No trees</li>
@@ -140,13 +140,18 @@
     });
 
     <!-- When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this  -->
+    $("h3").click(function (){
+      $(this).next().children().css("font-weight", "bold");
+    });
+
+
 
 
 
 
   });
 
-
+  <!-- When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this  -->
   <!-- When any list item is clicked, first li of the parent ul should have a font color of blue. -->
 
 
