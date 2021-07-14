@@ -82,7 +82,7 @@
   <li>A literal Canyon</li>
 </ul>
 
-
+<button class="yellow">Turn Last Li Yellow</button>
 
 <!-- START OF jQUERY -->
 <script src="js/jquery.js"></script>
@@ -109,22 +109,43 @@
         clicked = true;
         $(".answers").html("Hide All Answers");
       }
-
     });
 
     $("dt").click(function (){
-      $("dt").removeClass("highlight");
-      $("dd").addClass("invisible");
-      $(this).next("dd").removeClass("invisible");
       $(this).toggleClass("highlight");
     });
+
+    <!-- toggling class, additional functionality to click event to toggle that class-->
+
+    <!-- Create a button that, when clicked, makes the last li in each ul have a yellow background -->
+
+    let pushed = false;
+
+    $(".yellow").click(function (){
+
+      if(pushed){
+        $("ul").each(function (){
+          $(this).children().last().css("background-color", "white");
+        })
+        $(".yellow").html("Turn Last Li Yellow");
+        pushed = false;
+      }
+      else{
+        $("ul").each(function (){
+          $(this).children().last().css("background-color", "yellow");
+        })
+        $(".yellow").html("Remove Highlight");
+        pushed = true;
+      }
+    });
+
+    <!-- When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this  -->
+
+
+
+
   });
 
-  <!-- toggling class, additional functionality to click event to toggle that class-->
-
-  <!-- Create a button that, when clicked, makes the last li in each ul have a yellow background -->
-
-  <!-- When any h3 is clicked, the lis underneath it should be bolded. Use font-weight: bold to achieve this  -->
 
   <!-- When any list item is clicked, first li of the parent ul should have a font color of blue. -->
 
