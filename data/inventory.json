@@ -37,5 +37,12 @@
             "tool"
         ],
         "price": 15
-    }
+    }, {
+    "title": "Tester",
+    "quantity": 420,
+    "categories": [
+        "tool"
+    ],
+    "price": 1000
+}
 ]
