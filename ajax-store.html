@@ -34,41 +34,38 @@
             type: "GET",
             dataType: "json"
         }).done(function(data) {
-
-            //Clear insertProducts, can use empty instead of ""
-            //$("#insertProducts").html("");
-            $("#insertProducts").empty();
-
+            updateHTML(data);
             //Refractored code to do forEach instead of for loop
-            data.forEach(function (given){
-                $("#insertProducts").append("<tr><td>" + given.title + "</td><td>" + given.quantity +
-                "</td><td>" + given.price + "</td><td>" + given.categories + "</td>");
-
-            });
-            // DONE: Take the data from inventory.json and append it to the products table
-            //updateHTML(data);
         })
        }
 
-        // DONE: Take the data from inventory.json and append it to the products table
-       // function updateHTML(given){
-          // $("#insertProducts").html("");
 
-           //after seeing Ryan, try to use forEach (seems like better practice)
-           //Initally did it with for loop
-           //for(let i = 0; i < given.length; i++){
+       // DONE: Take the data from inventory.json and append it to the products table
+       function updateHTML(data){
+           // $("#insertProducts").html("");
+           //Clear insertProducts, can use empty instead of ""
+           $("#insertProducts").empty();
 
-                //$("#insertProducts").append("<tr><td>" + given[i].title + "</td><td>" + given[i].quantity +
-                    //"</td><td>" + given[i].price + "</td><td>" + given[i].categories + "</td>");
-           // }
-            //console.log(given);
-        //}
+           data.forEach(function (given){
+               $("#insertProducts").append("<tr><td>" + given.title + "</td><td>" + given.quantity +
+                   "</td><td>" + given.price + "</td><td>" + given.categories + "</td>");
 
+           });
+           console.log(data);
+        }
+        //after seeing Ryan, try to use forEach (seems like better practice)
+        //Initally did it with for loop
+        //for(let i = 0; i < given.length; i++){
+        //$("#insertProducts").append("<tr><td>" + given[i].title + "</td><td>" + given[i].quantity +
+        //"</td><td>" + given[i].price + "</td><td>" + given[i].categories + "</td>")};
+
+
+       //Refresh data when button pushed
         $(".refresh").click(function(){
             getData();
-            //one way to do it, but reloads entire page not just json
-            //location.reload();
         });
+        //one way to do it, but reloads entire page not just json
+        //location.reload();
     });
 
 </script>
