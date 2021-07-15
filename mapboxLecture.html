@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>MapBox Lecture</title>
 
   <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
@@ -11,15 +11,28 @@
 
 <div id='map' style='width: 90vw; height: 90vh;'></div>
 <script src="./js/keys.js"></script>
+<script src="./js/mapbox-geocoder-utils.js"></script>
 <script>
 
   mapboxgl.accessToken = mapboxAPIkey;
   var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/satellite-v9',
+    style: 'mapbox://styles/mapbox/streets-v9',
     zoom: 10,
     center: [-98.4916, 29.4252]
   });
+
+  var marker = new mapboxgl.Marker()
+      .setLngLat([-98.4916, 29.4260])
+      .addTo(map);
+
+  var alamoPopup = new mapboxgl.Popup()
+      .setHTML("<p>Remember The Alamo!</p>")
+      .addTo(map)
+
+  marker.setPopup(alamoPopup)
+
+
 </script>
 
 </body>
