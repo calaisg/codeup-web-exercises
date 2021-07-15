@@ -32,6 +32,11 @@
 
   marker.setPopup(alamoPopup)
 
+  geocode("300 Alamo Plaza, San Antonio, TX 78205", mapboxAPIkey).then(function(data){
+      console.log("Here are the coordinates for the location:")
+      console.log(data);
+  })
+
 
 </script>
 
