@@ -14,11 +14,15 @@
     <!--Nav Header-->
     <nav class="navbar bg-primary">
         <a class="navbar-brand text-white" href="#">Weather App</a>
-        <span class="navbar-text text-white currentCity">Navbar text with an inline element</span>
+        <span class="navbar-text text-white currentCity">Current City: San Antonio</span>
     </nav>
 
     <!--Search for Place-->
-    <div id="searchPlace">PlaceHolder for Search for New Place</div>
+    <form>
+        <label for="city">Place</label>
+        <input type="text" id="city" name="city">
+        <input type="submit" value="Submit">
+    </form>
 
     <!--Weather Conditions-->
     <div class="card-group">
@@ -30,7 +34,7 @@
     </div>
 
     <!--Map-->
-    <div id='map' style='width: 90vw; height: 90vh;'></div>
+    <div id='map' style='width: 100vw; height: 90vh;'></div>
 
 
 
@@ -89,11 +93,9 @@
           let filler5 = "<p>Temperature: "+ data.daily[3].temp.day + "</p><p>Description: " + data.daily[3].weather[0].description + "</p><p>Humidity: " + data.daily[3].humidity +
               "</p><p>Wind: " + data.daily[3].wind_gust + "</p><p>Pressure: " +  data.daily[3].pressure+"</p>";
           $("#card5").html(filler5);
-
-
       }
 
-      //gets daily forecast
+      // //gets daily forecast
       function tester(data){
           data.daily.forEach(function(day, index){
               if(index < 5){
@@ -102,6 +104,16 @@
               };
           })
       }
+
+
+      //Upon click to search for new city, update
+
+
+      // Geocode to take user input and recenter map to where they type in
+      // geocode("Cambridge, MA 02138", mapboxAPIkey).then(function(result) {
+      //     console.log("dumbby dumb dumb");
+      //     console.log(result);
+      // });
 
 
       //display current city
