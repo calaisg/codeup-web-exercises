@@ -13,7 +13,7 @@
     #map {
       /* the width and height may be set to any size */
       width: 100%;
-      height: 700px;
+      height: 600px;
     }
   </style>
 
@@ -26,6 +26,14 @@
       <!-- The HTML element that serves as the Mapbox container -->
       <div id='map'></div>
 
+      <!-- Select input to change zoom-->
+      <label for="zoom">Zoom level: </label>
+      <select name="zoom" id="zoom">
+          <option value="d">default</option>
+          <option value="5">5</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+      </select>
 
       <!-- Mapbox Geocoder Util Methods & keys -->
       <script src="./js/keys.js"></script>
@@ -45,24 +53,49 @@
           center: [-98.4916, 29.4252]
         });
 
-        var alamoInfo = {
-          address: "The Alamo",
-          popupHTML: "<p>Remember the Alamo!</p>"
-        };
+        // the  geocode method from mapbox-geocoder-utils.js
+        geocode("Cambridge, MA 02138", accessToken).then(function(result) {
+            console.log(result);
+            map.setCenter(result);
+            map.setZoom(12.5);
+        });
+
+        //Restaurants
+        var restaurants = [
+            {
+                address: "Kaju Tofu House 56 Harvard Ave Allston MA 02134",
+                popupHTML: "<h4>Kaju Tofu House</h4>" +
+                    "<p>Korean restraunt that serves the best soft tofu soup & scallion pancakes</p>"
+            },
+            {
+                address: "Spring Shabu-Shabu 304 Western Ave, Boston, MA 02135",
+                popupHTML: "<h4>Spring Shabu Shabu</h4>" +
+                    "<p>All you can eat hotpot buffet. No reservations allowed, so you better be prepared to wait for 2 hours in line. But it's worth it</p>"
+            },
+            {
+                address: "1923 Massachusetts Ave, Cambridge, MA 02140",
+                popupHTML: "<h4>Yume Wo Katare</h4>" +
+                    "<p>Small Ramen Shop of Dreams</p>"
+            }
+        ];
 
         function placeMarkerAndPopup(info, token, map) {
-          geocode(info.address, token).then(function(coordinates) {
-            var popup = new mapboxgl.Popup()
+            geocode(info.address, token).then(function(coordinates) {
+                var popup = new mapboxgl.Popup()
                     .setHTML(info.popupHTML);
-            var marker = new mapboxgl.Marker()
+                var marker = new mapboxgl.Marker()
                     .setLngLat(coordinates)
                     .addTo(map)
                     .setPopup(popup);
-            popup.addTo(map);
-          });
+                //not adding it to map stops it from popping up immediately
+               // popup.addTo(map);
+            });
         }
 
-        placeMarkerAndPopup(alamoInfo, accessToken, map);
+        //Generate Markers for restaurants
+        restaurants.forEach(function (restaurant){
+            placeMarkerAndPopup(restaurant, accessToken, map)
+            });
 
       </script>
 </body>

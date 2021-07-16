@@ -1,101 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>TEST-jQuery_FAQs</title>
+var tofuHouse = {
+address: "56 Harvard Ave Allston MA 02134 (US)",
+popupHTML: "<p>Kahu Tofu House</p>"
+};
 
-    <style>
-        .invisible {
-            visibility: hidden;
-        }
+function placeMarkerAndPopup(info, token, map) {
+geocode(info.address, token).then(function(coordinates) {
+var popup = new mapboxgl.Popup()
+.setHTML(info.popupHTML);
+var marker = new mapboxgl.Marker()
+.setLngLat(coordinates)
+.addTo(map)
+.setPopup(popup);
+popup.addTo(map);
+});
+}
 
-        .highlight{
-            background-color: yellow;
-        }
-    </style>
-
-    <script src="js/jquery.js"></script>
-</head>
-<body>
-
-<h1>10 Frequently Asked Questions About National Parks</h1>
-
-<a href="#" id="answers">Show All Answers</a>
-
-<dl>
-    <dt>Q1: Is this a park?</dt>
-    <dd class="invisible">A1: Yes</dd>
-
-    <dt>Q2: Is this a *national* park?</dt>
-    <dd class="invisible">A2: Also yes! </dd>
-
-    <dt>Q3: Is this a park?</dt>
-    <dd class="invisible">A3: Please refer to Question 1! </dd>
-
-    <dt>Q3: Can I climb the rocks?</dt>
-    <dd class="invisible">A3: Please don't</dd>
-
-    <dt>Q4: What do I do if I see a bear?</dt>
-    <dd class="invisible">A4: There aren't any bears native to our park!</dd>
-
-    <dt>Q5: Ok, but what if I did see one?</dt>
-    <dd class="invisible">A5: You won't, we promise!</dd>
-
-    <dt>Q6: What if someone decides to BYOB?</dt>
-    <dd class="invisible">A6: BYOB? Do you mean Bring Your Own Bear or Bring Your Own Beer? Both are not
-        permitted in our park!</dd>
-
-    <dt>Q7: What if my pet bear wants to drink tequila with me?</dt>
-    <dd class="invisible">A7: Please do not bring your bear or any form of alcohol into our park!</dd>
-
-    <dt>Q8: Can I jump into the giant hole that is filled with the void of space?</dt>
-    <dd class="invisible">A8: what?</dd>
-
-    <dt>Q9: I'm jumping into it!</dt>
-    <dd class="invisible">A9: We don't even have a giant hole where are you going? Hey wa-</dd>
-
-    <dt>Q10:</dt>
-    <dd class="invisible">A10: t̴̤͒ḣ̶̥e̴̘̓r̷̡͘ḙ̴̀ ̶̟̂i̶̗͗s̸͙̚ ̵̗̀o̵̟͠n̵͕̚l̵̫̇y̴̲̏ ̴͓̒t̵̰̽h̸͔͒ę̴̀ ̶͚͗v̷͈͊ọ̷̐ĭ̵̳d̴̬͐</dd>
-</dl>
-
-<!-- START OF jQUERY -->
-<script src="js/jquery.js"></script>
-<script>
-    "use strict"
-    $(document).ready(function (){
-
-        $(".invisible").hide();
-
-        let hidden = false;
-        let clicked = false;
-
-        <!--sets class "invisible" visibility to hidden -->
-        <!-- $(".invisible").css("visibility", "hidden"); -->
-
-        $("#answers").click(function (){
-            $(".invisible").toggle();
-            if(hidden){
-                hidden = false;
-                $("a").html("Show All Answers")
-            }
-            else{
-                hidden = true;
-                $("a").html("Hide All Answers")
-            }
-        });
-
-        $("dt").click(function (){
-            $(this).next("dd").toggle();
-            if(clicked){
-                $(this).css("background-color", "white");
-                clicked = false;
-            }
-            else{
-                $(this).css("background-color", "yellow");
-                clicked = true;
-            }
-        });
-    });
-</script>
-</body>
-</html>
+placeMarkerAndPopup(tofuHouse, accessToken, map);
