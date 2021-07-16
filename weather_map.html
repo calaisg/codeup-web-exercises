@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+</head>
+<body>
+
+<!--Weather Conditions-->
+
+<div id="conditions"></div>
+
+<!--Map-->
+<div id='map' style='width: 90vw; height: 90vh;'></div>
+
+
+<script src="./js/jquery.js"></script>
+<script src="./js/keys.js"></script>
+<script src="./js/mapbox-geocoder-utils.js"></script>
+
+
+
+<!--Start of JS-->
+<script>
+  "use strict"
+
+  $(document).ready(function (){
+
+    //generate information
+    $.get("https://api.openweathermap.org/data/2.5/weather", {
+      appid: openWeatherAPIkey,
+      q:     "San Antonio, US",
+        units: "imperial"
+    }).done(function(data){
+        weatherInfo(data);
+        console.log(data);
+      });
+
+    //generate map
+      mapboxgl.accessToken = mapboxAPIkey;
+      var map = new mapboxgl.Map({
+          container: 'map',
+          style: 'mapbox://styles/mapbox/streets-v9',
+          zoom: 10,
+          center: [-98.4916, 29.4252]
+      });
+
+      //display weather info in HTML
+      function weatherInfo(data){
+          let filler = "<p>Temperature: "+ data.main.temp + "</p><p>Description: " + data.weather[0].description + "</p><p>Humidity: " + data.main.humidity +
+              "</p><p>Wind: " + data.wind.gust + "</p><p>Pressure: " +  data.main.pressure+"</p>";
+          $("#conditions").html(filler);
+      }
+
+  //last closing bracket
+  });
+
+
+</script>
+</body>
+</html>
