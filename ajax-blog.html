@@ -11,10 +11,7 @@
     "use strict"
 
     $(document).ready(function (){
-        getData();
-
         // DONE: Create an AJAX GET request for the file under data/inventory.json
-        function getData(){
             $.ajax("data/blog.json", {
                 type: "GET",
                 dataType: "json"
@@ -23,7 +20,6 @@
                 console.log(data);
                 //Refractored code to do forEach instead of for loop
             })
-        }
 
         function updateHTML(inputs){
             inputs.forEach(function (input){
