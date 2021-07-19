@@ -69,7 +69,6 @@
         units: "imperial"
     }).done(function(data){
        weatherInfo(data, 0);
-        console.log(data);
       });
 
     //generate map
@@ -108,7 +107,6 @@
           event.preventDefault();
           let newCity = $("#city").val();
           reCenter(newCity);
-          displaySearchCity(newCity);
       });
 
       // Geocode to take user input and recenter map to where they type in & updates marker & updates weather
@@ -124,23 +122,27 @@
                      latitiude,
                      longitude
                  ],
+                 zoom: 10,
                  essential: true
              });
              marker.setLngLat(result);
 
              //call to update weather
              newInfo(longitude, latitiude);
+             displayCity(longitude, latitiude);
          })
      };
 
-      //display current city in (TODO: get city from geocaching instead of user input)
-       function displaySearchCity(data){
-            let cityArray = data.split(",");
-            $(".currentCity").html("Current City: " + cityArray[0]);
+      //updates currenty city in
+       function displayCity(one, two){
+           reverseGeocode(
+               {lng: two, lat: one}, mapboxAPIkey).then(function(results) {
+               let city = results.split(",");
+               $(".currentCity").html("Current City: " + city[1]);
+           });
       }
 
-      //TODO:marker updates current city
-      //upon dragging, marker coordinates update map center & weather
+      //upon dragging, marker coordinates update map center & weather & city
       function markerDragged(){
           //set long and lat as hard numbers
           let newCoordinates = marker.getLngLat();
@@ -153,11 +155,13 @@
                   longitude,
                   latitude
               ],
+              zoom: 10,
               essential: true
           });
 
           //call to update weather
           newInfo(latitude, longitude);
+          displayCity(latitude, longitude);
       }
       marker.on("dragend", markerDragged);
 
@@ -170,7 +174,6 @@
               units: "imperial"
           }).done(function(data){
               weatherInfo(data, 0);
-              console.log(data);
           })
       }
 
