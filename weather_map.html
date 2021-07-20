@@ -83,6 +83,9 @@
             units: "imperial"
         }).done(function (data) {
             weatherInfo(data, 0);
+        }).fail(function (jqXhr, status, error){
+            var errorMessage = `Was not able to fetch the coffees \nError: ${error}`;
+            console.log(errorMessage);
         });
 
         //generate map
@@ -135,6 +138,7 @@
         function reCenter(location){
             geocode(location, mapboxgl.accessToken).then(function(result) {
                 //set long and lat as hard numbers
+
                 let latitiude = result[0];
                 let longitude = result[1];
 
@@ -197,11 +201,6 @@
                 units: "imperial"
             }).done(function(data){
                 weatherInfo(data, 0);
-            }).fail(function (jqXhr, status, error){
-                var errorMessage = `Was not able to fetch the coffees \nError: ${error}`;
-                console.log(errorMessage);
-                tbody.html(errorMessage);
-
             })
         };
     });
