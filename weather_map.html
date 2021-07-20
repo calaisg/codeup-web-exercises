@@ -59,7 +59,7 @@
     <!--Map TODO:HOW TO MAKE MAP FULL -->
     <div class="row">
         <div class="col">
-            <div id='map' style='width: 97vw; height: 28vw'></div>
+            <div id='map' style='width: 100%; height: 40vh'></div>
         </div>
     </div>
 </div>
@@ -103,10 +103,10 @@
                     let filler1 = new Date(day.dt * 1000).toDateString();
                     $("#card-head" + (index + 1)).html(filler1);
 
-                    //TODO: Center img & make cards shorter
+                    //TODO: make cards shorter
                     //set card body to all the things
                     let filler2 =   "<p class='text-center'><strong>"+ day.temp.max + "&#8457 / " + day.temp.min + "&#8457</strong></p>" +
-                        "<img class='' src=\"http://openweathermap.org/img/w/" + day.weather[0].icon +".png\">" +
+                        "<div class='text-center'><img src=\"http://openweathermap.org/img/w/" + day.weather[0].icon + ".png\"></div>" +
                         "<hr><p>Description: <strong>" + day.weather[0].description + "</strong></p>" +
                         "<hr><p>Humidity: <strong>" + day.humidity + "</strong></p>" +
                         "<hr><p>Wind: <strong>" + day.wind_gust + "</strong></p>" +
