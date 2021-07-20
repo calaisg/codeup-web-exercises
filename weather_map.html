@@ -59,7 +59,7 @@
     <!--Map TODO:HOW TO MAKE MAP FULL -->
     <div class="row">
         <div class="col">
-            <div id='map' style='width: 100%; height: 100%'></div>
+            <div id='map' style='width: 100%; height: 40vh'></div>
         </div>
     </div>
 </div>
@@ -105,12 +105,15 @@
 
                     //TODO: make cards shorter
                     //set card body to all the things
-                    let filler2 =   "<p class='text-center'><strong>"+ day.temp.max + "&#8457 / " + day.temp.min + "&#8457</strong></p>" +
-                        "<div class='text-center'><img src=\"http://openweathermap.org/img/w/" + day.weather[0].icon + ".png\"></div>" +
-                        "<hr><p>Description: <strong>" + day.weather[0].description + "</strong></p>" +
-                        "<hr><p>Humidity: <strong>" + day.humidity + "</strong></p>" +
-                        "<hr><p>Wind: <strong>" + day.wind_gust + "</strong></p>" +
-                        "<hr><p>Pressure: <strong>" +  day.pressure+"</strong></p>";
+                    let filler2 = `<p class='text-center'><strong>${day.temp.max}&#8457/${day.temp.min}&#8457</strong></p>
+                                   <div class='text-center'><img src=\"http://openweathermap.org/img/w/${day.weather[0].icon}.png\"></div>
+                                   <hr>
+                                   <p>Description: <strong>${day.weather[0].description}</strong></p>
+                                   <hr>
+                                   <p>Humidity: <strong>${day.humidity}</strong></p>
+                                   <hr>
+                                   <p>Wind: <strong>${day.wind_gust}</strong></p>
+                                   <hr><p>Pressure: <strong>${day.pressure}</strong></p>`;
                     $("#card-body" + (index + 1)).html(filler2);
                 }
             })
@@ -158,7 +161,7 @@
                 {lng: two, lat: one}, mapboxAPIkey).then(function(results) {
                 console.log(results);
                 let city = results.split(",");
-                $(".currentCity").html("Current City: " + city[1]);
+                $(".currentCity").html("Current City: " + (city[city.length - 3]));
             });
         };
 
@@ -194,6 +197,11 @@
                 units: "imperial"
             }).done(function(data){
                 weatherInfo(data, 0);
+            }).fail(function (jqXhr, status, error){
+                var errorMessage = `Was not able to fetch the coffees \nError: ${error}`;
+                console.log(errorMessage);
+                tbody.html(errorMessage);
+
             })
         };
     });
