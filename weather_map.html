@@ -2,53 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Weather Map</title>
+    <title> Weather Map</title>
 
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
 </head>
-<!--TODO: Make look nicer-->
 <body>
-    <!--Nav Header-->
-    <nav class="navbar bg-primary">
-        <a class="navbar-brand text-white" href="#">Weather App</a>
-        <span class="navbar-text text-white currentCity">Current City: San Antonio</span>
-    </nav>
+<!--Nav Header-->
+<nav class="navbar bg-primary">
+    <a class="navbar-brand text-white" href="#">Weather App</a>
+    <span class="navbar-text text-white currentCity">Current City: San Antonio</span>
+</nav>
 
-    <div class="container-fluid">
-        <!--Search for Place-->
-        <div class="row p-3">
-            <div class="col">
-                <form id="city-search">
-                    <label for="city">Place</label>
-                    <input type="text" id="city" name="city">
-                    <input type="submit" value="Submit">
-                </form>
-            </div>
+<div class="container-fluid">
+    <!--Search for Place-->
+    <div class="row p-3">
+        <div class="col">
+            <form id="city-search">
+                <label for="city">Place</label>
+                <input type="text" id="city" name="city">
+                <input type="submit" value="Find" class="btn-primary">
+            </form>
         </div>
+    </div>
 
-        <!--Weather Conditions-->
-        <div class="row no-gutters p-2">
-            <div class="col">
-                <div class="card-group">
-                    <div class="card" id="card1"></div>
-                    <div class="card" id="card2"></div>
-                    <div class="card" id="card3"></div>
-                    <div class="card" id="card4"></div>
-                    <div class="card" id="card5"></div>
+    <!--Weather Conditions-->
+    <div class="row p-2">
+        <div class="col">
+            <div class="card-deck">
+                <div class="card " id="card1">
+                    <div class="card-header text-center" id="card-head1"></div>
+                    <div class="card-body" id="card-body1"></div>
+                </div>
+                <div class="card" id="card2">
+                    <div class="card-header text-center" id="card-head2"></div>
+                    <div class="card-body" id="card-body2"></div>
+                </div>
+                <div class="card " id="card3">
+                    <div class="card-header text-center" id="card-head3"></div>
+                    <div class="card-body" id="card-body3"></div>
+                </div>
+                <div class="card " id="card4">
+                    <div class="card-header text-center" id="card-head4"></div>
+                    <div class="card-body" id="card-body4"></div>
+                </div>
+                <div class="card " id="card5">
+                    <div class="card-header text-center" id="card-head5"></div>
+                    <div class="card-body" id="card-body5"></div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!--Map-->
-        <div class="row no-gutters">
-            <div class="col">
-                <div id='map' style='width: 98vw; height: 30vw'></div>
-            </div>
+    <!--Map TODO:HOW TO MAKE MAP FULL -->
+    <div class="row">
+        <div class="col">
+            <div id='map' style='width: 97vw; height: 28vw'></div>
         </div>
     </div>
+</div>
 
 <script src="./js/jquery.js"></script>
 <script src="./js/keys.js"></script>
@@ -57,128 +71,132 @@
 
 <!--Start of JS-->
 <script>
-  "use strict"
+    "use strict"
 
-  $(document).ready(function (){
+    $(document).ready(function () {
 
-    //generate weather info
-    $.get(`https://api.openweathermap.org/data/2.5/onecall`,{
-      appid: openWeatherAPIkey,
-      lat: 29.424349,
-        lon: -98.491142,
-        units: "imperial"
-    }).done(function(data){
-       weatherInfo(data, 0);
-      });
+        //generate weather info
+        $.get(`https://api.openweathermap.org/data/2.5/onecall`, {
+            appid: openWeatherAPIkey,
+            lat: 29.424349,
+            lon: -98.491142,
+            units: "imperial"
+        }).done(function (data) {
+            weatherInfo(data, 0);
+        });
 
-    //generate map
-      mapboxgl.accessToken = mapboxAPIkey;
-      var map = new mapboxgl.Map({
-          container: 'map',
-          style: 'mapbox://styles/mapbox/streets-v9',
-          zoom: 10,
-          center: [-98.4916, 29.4252]
-      });
+        //generate map
+        mapboxgl.accessToken = mapboxAPIkey;
+        var map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 10,
+            center: [-98.4916, 29.4252]
+        });
 
-      //display marker for San Antonio, marker is draggable
-      var marker = new mapboxgl.Marker({
-          draggable: true
-      })
-       //intially set marker to center in SA
-          .setLngLat([-98.4916, 29.4252])
-          .addTo(map)
+        //fill cards with weather information
+        function weatherInfo(data){
+            data.daily.forEach(function(day, index){
+                if(index < 5){
+                    //set card header to date
+                    new Date;
+                    let filler1 = new Date(day.dt * 1000).toDateString();
+                    $("#card-head" + (index + 1)).html(filler1);
 
-      // get daily forecast & display
-      //TODO: add weather icons (description)
-      function weatherInfo(data){
-          data.daily.forEach(function(day, index){
-              if(index < 5){
-                  new Date
-                  let filler1 = "<p>" + (new Date(day.dt * 1000).toDateString()) + "</p><p>Temperature: "+ day.temp.day +
-                      "</p><p>Description: " + day.weather[0].description + "</p><p>Humidity: " + day.humidity +
-                      "</p><p>Wind: " + day.wind_gust + "</p><p>Pressure: " +  day.pressure+"</p>";
-                  $("#card" + (index + 1)).html(filler1);
-              }
-          })
-      };
+                    //TODO: Center img & make cards shorter
+                    //set card body to all the things
+                    let filler2 =   "<p class='text-center'><strong>"+ day.temp.max + "&#8457 / " + day.temp.min + "&#8457</strong></p>" +
+                        "<img class='' src=\"http://openweathermap.org/img/w/" + day.weather[0].icon +".png\">" +
+                        "<hr><p>Description: <strong>" + day.weather[0].description + "</strong></p>" +
+                        "<hr><p>Humidity: <strong>" + day.humidity + "</strong></p>" +
+                        "<hr><p>Wind: <strong>" + day.wind_gust + "</strong></p>" +
+                        "<hr><p>Pressure: <strong>" +  day.pressure+"</strong></p>";
+                    $("#card-body" + (index + 1)).html(filler2);
+                }
+            })
+        };
 
-      //submit button clicked
-      $("#city-search").submit(function(event) {
-          event.preventDefault();
-          let newCity = $("#city").val();
-          reCenter(newCity);
-      });
+        //display initial marker for San Antonio, marker is draggable
+        var marker = new mapboxgl.Marker({
+            draggable: true
+        }).setLngLat([-98.4916, 29.4252]).addTo(map);
 
-      // Geocode to take user input and recenter map to where they type in & updates marker & updates weather
-     function reCenter(location){
-         geocode(location, mapboxgl.accessToken).then(function(result) {
-             //set long and lat as hard numbers
-             let latitiude = result[0];
-             let longitude = result[1];
+        //submit button clicked
+        $("#city-search").submit(function(event) {
+            event.preventDefault();
+            let newCity = $("#city").val();
+            reCenter(newCity);
+        });
 
-             //fly map center to user input
-             map.flyTo({
-                 center: [
-                     latitiude,
-                     longitude
-                 ],
-                 zoom: 10,
-                 essential: true
-             });
-             marker.setLngLat(result);
+        // Geocode to take user input and recenter map to where they type in & updates marker & updates weather
+        function reCenter(location){
+            geocode(location, mapboxgl.accessToken).then(function(result) {
+                //set long and lat as hard numbers
+                let latitiude = result[0];
+                let longitude = result[1];
 
-             //call to update weather
-             newInfo(longitude, latitiude);
-             displayCity(longitude, latitiude);
-         })
-     };
+                //fly map center to user input
+                map.flyTo({
+                    center: [
+                        latitiude,
+                        longitude
+                    ],
+                    zoom: 10,
+                    essential: true
+                });
+                marker.setLngLat(result);
 
-      //updates currenty city in
-       function displayCity(one, two){
-           reverseGeocode(
-               {lng: two, lat: one}, mapboxAPIkey).then(function(results) {
-               let city = results.split(",");
-               $(".currentCity").html("Current City: " + city[1]);
-           });
-      }
+                //call to update weather
+                newInfo(longitude, latitiude);
+                displayCity(longitude, latitiude);
+            })
+        };
 
-      //upon dragging, marker coordinates update map center & weather & city
-      function markerDragged(){
-          //set long and lat as hard numbers
-          let newCoordinates = marker.getLngLat();
-          let longitude = newCoordinates.lng;
-          let latitude = newCoordinates.lat;
+        //updates current city in (TODO: How to accurately grab city?)
+        function displayCity(one, two){
+            reverseGeocode(
+                {lng: two, lat: one}, mapboxAPIkey).then(function(results) {
+                console.log(results);
+                let city = results.split(",");
+                $(".currentCity").html("Current City: " + city[1]);
+            });
+        };
 
-          //fly map center to where marker dropped
-          map.flyTo({
-              center: [
-                  longitude,
-                  latitude
-              ],
-              zoom: 10,
-              essential: true
-          });
+        //upon dragging, marker coordinates update map center & weather & city
+        function markerDragged(){
+            //set long and lat as hard numbers
+            let newCoordinates = marker.getLngLat();
+            let longitude = newCoordinates.lng;
+            let latitude = newCoordinates.lat;
 
-          //call to update weather
-          newInfo(latitude, longitude);
-          displayCity(latitude, longitude);
-      }
-      marker.on("dragend", markerDragged);
+            //fly map center to where marker dropped
+            map.flyTo({
+                center: [
+                    longitude,
+                    latitude
+                ],
+                zoom: 10,
+                essential: true
+            });
 
-      //set new forecast
-      function newInfo(lat, long){
-          $.get(`https://api.openweathermap.org/data/2.5/onecall`,{
-              appid: openWeatherAPIkey,
-              lat: lat,
-              lon: long,
-              units: "imperial"
-          }).done(function(data){
-              weatherInfo(data, 0);
-          })
-      }
+            //call to update weather
+            newInfo(latitude, longitude);
+            displayCity(latitude, longitude);
+        };
+        marker.on("dragend", markerDragged);
 
-  //last closing bracket
-  });
+        //set new forecast
+        function newInfo(lat, long){
+            $.get(`https://api.openweathermap.org/data/2.5/onecall`,{
+                appid: openWeatherAPIkey,
+                lat: lat,
+                lon: long,
+                units: "imperial"
+            }).done(function(data){
+                weatherInfo(data, 0);
+            })
+        };
+    });
 </script>
 </body>
 </html>
