@@ -55,7 +55,21 @@ const totalYears = users.reduce((total, currentUser) => {
     return total + currentUser.yearsOfExperience;
 }, 0);
 
-//use .reduce to get longest email from list of users
+
+
+
+
+//DONE: use .reduce to get longest email from list of users
+
+const longestEmail = users.reduce((currentLongestEmail, currentUser) => {
+    if (currentUser.email.length > currentLongestEmail.length){
+        return currentUser.email;
+    }
+    else{
+        return currentLongestEmail;
+    }
+    },"");
+
 // function findLongest(users){
 //     let returnEmail = ""
 //     const longestEmail = users.reduce((longest, currentUser) =>{
@@ -66,13 +80,14 @@ const totalYears = users.reduce((total, currentUser) => {
 //         return returnEmail;
 //     }, 0);
 //     return longestEmail;
-// }
+// };
 // console.log(findLongest(users));
 
-// //use .reduce to get lists of users name in single string
-// const listUsers = users.reduce((userList, currentUser) => {
-//     return userList += currentUser.name;
-// }, "");
-// console.log(listUsers);
+//use .reduce to get lists of users name in single string
+//TODO: MAKE BETTER
+const listUsers = users.reduce((userList, currentUser) => {
+    return userList + currentUser.name;
+}, "");
+//use .reduce to get unique list of languages from the list of users
 
 
