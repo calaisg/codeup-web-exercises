@@ -7,10 +7,20 @@
 function lastCommit(username){
     return fetch('https://api.github.com/users/' + username + '/events',{headers: {'Authorization': 'token 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'}} )
         .then(response => response.json())
-        .then(user => console.log("Last push was: " + user[0].created_at));
+        .then(user => console.log("Last push was: " + user[0].created_at))
+        .catch(error => console.log("error!"))
+    // .then(response => {
+        //     response.json().then( user => {
+        //         console.log(user);
+        //         console.log(user[0].created_at);
+        //         resolve();
+        //     });
+        // });
+
 };
 
 //just return fetch request (no promise thing)
+
 lastCommit("calaisg");
 
 
