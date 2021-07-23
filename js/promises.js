@@ -10,18 +10,18 @@ function lastCommit(username){
         .then(user => console.log("Last push was: " + user[0].created_at))
         .catch(error => console.log("error!"))
     // .then(response => {
-        //     response.json().then( user => {
-        //         console.log(user);
-        //         console.log(user[0].created_at);
-        //         resolve();
-        //     });
-        // });
-
+    //     response.json().then( user => {
+    //         console.log(user);
+    //         console.log(user[0].created_at);
+    //         resolve();
+    //     });
+    // });
 };
 
-//just return fetch request (no promise thing)
+//just return fetch request (no pr
 
 lastCommit("calaisg");
+console.log(lastCommit("calaisg"))
 
 
 
